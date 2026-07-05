@@ -1,0 +1,33 @@
+ h1,h2,h3,h4,h5,h6{
+        margin: 0px;
+    }
+  #user{
+    background-color: white;
+    border-radius: 100px;
+    padding: 10px;
+    font-size: 15px;
+    padding-left: 20px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    cursor: pointer ;
+    margin-top: 15px;
+
+  }
+  body{
+     background: linear-gradient(45deg,rgb(139, 4, 121),rgb(65, 5, 155));
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  }
+  #post{
+    background-color: aliceblue;
+    border-radius:10px ;
+    font-size :12px;
+    padding:10px ;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    margin-top: 15px;
+    
+
+
+  }
+  #user.selected{
+    border: solid rgb(210, 65, 65) 6px;
+  }
