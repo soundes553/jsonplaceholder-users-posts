@@ -1,43 +1,23 @@
 # JSONPlaceholder Users & Posts
 
-A simple web application that displays users and their posts using the JSONPlaceholder API.
+A simple web page built with HTML, CSS, and JavaScript.
 
-## Features
+## Description
 
-- Display all users
-- Display posts of the selected user
-- Dynamic page updates
-- Interactive user interface
+This page retrieves users and their posts from the JSONPlaceholder API. When a user is selected, their posts are displayed dynamically without reloading the page.
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla JS)
-- XMLHttpRequest
-- JSONPlaceholder API
+* HTML5
+* CSS3
+* JavaScript
+* Fetch API
+* Promises
 
-## API Used
+## API
 
-This project uses the JSONPlaceholder API:
-
-https://jsonplaceholder.typicode.com/
-
-Endpoints used:
-
-- /users
-- /posts?userId={id}
-
-## What I Learned
-
-- Working with APIs
-- Sending HTTP requests with XMLHttpRequest
-- Handling JSON data
-- DOM manipulation
-- Dynamic content generation
-- Using Git and GitHub
+JSONPlaceholder
 
 ## Author
 
 Soundes Chine
-Computer Science Student
