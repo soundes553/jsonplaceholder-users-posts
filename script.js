@@ -1,12 +1,12 @@
- function getPosts(idP){
-             let request=new XMLHttpRequest();
-             request.open("GET", `https://jsonplaceholder.typicode.com/posts?userId=${idP}`);
-             request.responseType="json"
-             request.send();
-             request.onload=function(){
-                if(request.status >= 200 && request.status < 300){
-                    let posts=request.response
-                    document.getElementById("posts").innerHTML=" "
+function getPosts(idP){
+            fetch(`https://jsonplaceholder.typicode.com/posts?userId=${idP}`)
+            .then((response) => {
+                if(response.ok){
+                    return response.json()
+                }
+            })
+            .then((posts) => {
+                document.getElementById("posts").innerHTML=" "
                     for(post of posts){
                         let content=`
                             <div id="post">
@@ -17,21 +17,26 @@
                         document.getElementById("posts").innerHTML+=content
 
                     }
-                } else {
-                    console.error('Request failed with status', request.status);
+                } );
                 }
-             }
 
-        }
+
+
+
+
         function getUsers(){
-             let request=new XMLHttpRequest();
-             request.open("GET","https://jsonplaceholder.typicode.com/users");
-             request.responseType="json"
-             request.send();
-             request.onload=function(){
-                if(request.status >= 200 && request.status < 300){
-                    let users=request.response
-                    document.getElementById("users").innerHTML=" "
+            return new Promise((resolve,reject)=>{ 
+                 fetch("https://jsonplaceholder.typicode.com/users")
+                .then((response )=> {
+                    if(response.ok){
+                       return  response.json()
+                       }
+                    else{
+                        reject("Error with user request ")
+                    }
+                      })
+                .then(users => {
+                 document.getElementById("users").innerHTML=" "
                     for(user of users){
                         let content=`
                         <div id="user" onclick="userClicked(${user.id},this)">
@@ -42,13 +47,12 @@
                         document.getElementById("users").innerHTML+=content
 
                     }
-                } else {
-                    console.error('Request failed with status', request.status);
-                }
-             }
+                    resolve()
+       } );})
+           
+    }
 
-        }
-         function userClicked(id,el){
+        function userClicked(id,el){
             getPosts(id)
            let selectedElements= document.getElementsByClassName("selected")
            for(element of selectedElements){
@@ -57,6 +61,12 @@
            el.classList.add("selected")
 
         }
+    
+    getUsers().then(()=>{
+        getPosts(1)
+    }).catch((error)=>{
+        console.log(error)
 
-        getUsers()
+    })       
+        
         
