@@ -34,7 +34,7 @@
                     document.getElementById("users").innerHTML=" "
                     for(user of users){
                         let content=`
-                        <div id="user" onclick="userClicked(${user.id})">
+                        <div id="user" onclick="userClicked(${user.id},this)">
                             <h3>${user.name}</h3>
                             <h3>${user.email}</h3>
                           </div>
@@ -48,11 +48,15 @@
              }
 
         }
-        function userClicked(id){
+         function userClicked(id,el){
             getPosts(id)
+           let selectedElements= document.getElementsByClassName("selected")
+           for(element of selectedElements){
+                element.classList.remove("selected")
+             }
+           el.classList.add("selected")
 
         }
-
 
         getUsers()
         
